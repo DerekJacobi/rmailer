@@ -2,8 +2,9 @@
 
 "use strict";
 
-function MailController($scope, $http){
+function MailController($scope, $http, $compile, $timeout){
 
+  //get all mail for a selected user
   this.getMail = function(userID){
 
     $http({
@@ -15,7 +16,8 @@ function MailController($scope, $http){
 
   };
 
-  this.sendMail = function(email){
+  //send email to a selected user
+  this.sendMail = function(emailNew){
 
     $http({
           url: '/sendemail',
@@ -42,7 +44,7 @@ function MailController($scope, $http){
 
   }
 
-    MailController.$inject = ['$scope','$http'];
+    MailController.$inject = ['$scope','$http', '$compile', '$timeout'];
 
 angular
   .module('mailer', [])

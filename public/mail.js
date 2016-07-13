@@ -5,7 +5,7 @@
 function MailController($scope, $http){
 
   this.getMail = function(userID){
-    console.log(userID);
+
     $http({
           url: '/mail/' + userID,
           method: "GET",
@@ -21,10 +21,11 @@ function MailController($scope, $http){
           url: '/sendemail',
           method: "POST",
           data: email
-    }).then(function(response){
-      console.log(response.data);
+    }).then(function(err, response){
+      if(err) console.log(err);
+      else console.log(response.data);
     });
-
+    //After sending mail, get the sent to users emails
     this.getMail(email.to);
 
   };

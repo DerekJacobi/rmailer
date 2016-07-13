@@ -4,6 +4,7 @@ var MailSchema = new mongoose.Schema({
   from: String,
   to: String,
   subject: String,
+  message: String,
   sent_at: { type: Date, default: Date.now },
 });
 

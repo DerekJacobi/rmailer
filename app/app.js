@@ -6,6 +6,7 @@ module.exports = function(app){
     res.render('index');
   });
 
+  //get all mail for a selected user
   app.get('/mail/:id', function(req, res, next) {
     var id = req.params.id;
     Mail.find({to: id}, function (err, mail) {
@@ -14,6 +15,7 @@ module.exports = function(app){
     });
   });
 
+  //send email to a selected user
   app.post('/sendemail', function(req, res, next){
     var emailTo = req.body.to,
         emailFrom = req.body.from,

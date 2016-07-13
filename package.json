@@ -4,12 +4,13 @@
   "description": "rebel mail http email microservice",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.conf.js"
   },
   "author": "derek jacobi",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.7",
+    "angular-mocks": "^1.5.7",
     "body-parser": "^1.15.2",
     "ejs": "^2.4.2",
     "express": "^4.14.0",
@@ -17,5 +18,8 @@
     "mongodb": "^2.2.1",
     "mongoose": "^4.5.4",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+
   }
 }

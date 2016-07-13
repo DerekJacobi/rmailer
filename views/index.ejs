@@ -10,11 +10,12 @@
 
     <!--  Send email form -->
     <div ng-include src="'partials/mailform.ejs'"></div>
-    <div>
-      {{ht}}
-    </div>
-    <h4 style="margin-left: 35%;">Todays Date: {{today}}</h4>
 
+    <!-- Sample Email -->
+    <div>
+    <h3 id="preview-header">Live Email Preview</h3>
+      <div style="width: 340px; margin-left: auto; margin-right: auto;"><div><img src="https://s31.postimg.org/a247w8ijf/Screen_Shot_2016_07_13_at_12_05_56_AM.png"></div><div style="display: flex; justify-content: center; align-items: center; flex-direction: column;"><h4>To : {{ email.to }}</h4><h4>From : {{ email.from }}</h4><h6>Subject : {{ email.subject }}</h6><h6>Message : {{ email.message }}</h6></div>    <div><img src="https://s32.postimg.org/dk4tn3gw5/Screen_Shot_2016_07_13_at_12_06_06_AM.png"></div></div>
+    </div>
 
     <div id="both-mailboxes">
 
@@ -26,18 +27,35 @@
 
     </div>
 
+    <link rel="stylesheet" href="./css/style.css" />
 
-    <link rel="stylesheet" href="./css/style.css"
+    <!-- jasmine -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasmine/1.3.1/jasmine.js"></script>
+    <!-- jasmine's html reporting code and css -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasmine/1.3.1/jasmine-html.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jasmine/1.3.1/jasmine.css" rel="stylesheet" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-mocks.js"></script>
     <script src='./mail.js'></script>
+    <script src="./specs.js"></script>
+
+    <script>
+      var jasmineEnv = jasmine.getEnv();
+
+      jasmineEnv.addReporter(new jasmine.HtmlReporter());
+
+      jasmineEnv.execute();
+    </script>
+
+
 
   </body>
 </html>

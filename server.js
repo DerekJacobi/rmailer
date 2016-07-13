@@ -4,6 +4,7 @@ var express     = require('express'),
     http        = require('http'),
     bodyParser  = require('body-parser'),
     mongoose    = require('mongoose'),
+    nodemailer = require('nodemailer'),
     app         = express();
 
 

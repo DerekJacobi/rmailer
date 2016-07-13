@@ -23,8 +23,12 @@ app.use(express.static('public'));
 
 require('./app/app.js')(app);
 
+var uristring =
+   process.env.MONGOLAB_URI ||
+   process.env.MONGOHQ_URL ||
+   'mongodb://localhost/';
 
-mongoose.connect('mongodb://localhost/', function(err) {
+mongoose.connect(uristring, function(err) {
     if(err) {
         console.log('connection error', err);
     } else {

@@ -7,46 +7,21 @@
 
   </head>
   <body ng-controller="MailController as MailCtrl">
-    <form>
-      <input type="text" placeholder="to" name="email.to">
-      <input type="text" placeholder="from" name="email.from">
-      <input type="text" placeholder="subject" name="email.subject">
-      <input type="text" placeholder="message" name="email.message">
-      <button class="btn btn-default" ng-click='MailCtrl.sendMail(email)'>Send Mail</button>
-    </form>
+
+    <!--  Send email form -->
+    <div ng-include src="'partials/mailform.ejs'"></div>
+
     <h4 style="margin-left: 35%;">Todays Date: {{today}}</h4>
-    <div style="display: flex">
-      <div style="width: 45%;">
 
-        <div>
-          <h3>Rebel Mail HTTP Mailbox for User 1</h3>
-          <button class="btn btn-default" ng-click='MailCtrl.getMail(1)'>Get Mail</button>
-        </div>
 
-        <div>
-          <div id="mailbox">
-            <ul>
-              <li ng-repeat="mail in userMail">From: {{mail.from}} Subject: {{mail.subject}} Sent: {{mail.sent}}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div id="both-mailboxes">
 
-      <div style="width: 45%;">
+      <!-- Mailbox for user 1 -->
+      <div ng-include src="'partials/mailbox1.ejs'"></div>
 
-        <div>
-          <h3>Rebel Mail HTTP Mailbox for User 2</h3>
-          <button class="btn btn-default" ng-click='MailCtrl.getMail(2)'>Get Mail</button>
-        </div>
+      <!-- Mailbox for user 2t -->
+      <div ng-include src="'partials/mailbox2.ejs'"></div>
 
-        <div>
-          <div id="mailbox">
-            <ul>
-              <li ng-repeat="mail in userMail">Subject: {{mail.subject}} Sent: {{mail.sent}}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
 
 

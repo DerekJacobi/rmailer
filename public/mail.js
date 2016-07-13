@@ -5,23 +5,28 @@
 function MailController($scope, $http){
 
   this.getMail = function(userID){
+    console.log(userID);
     $http({
           url: '/mail/' + userID,
           method: "GET",
     }).then(function(response){
       $scope.userMail = response.data;
-      console.log(response.data);
     });
+
   };
 
   this.sendMail = function(email){
+
     $http({
           url: '/sendemail',
           method: "POST",
-          params: email,
+          data: email
     }).then(function(response){
       console.log(response.data);
     });
+
+    this.getMail(email.to);
+
   };
 
 

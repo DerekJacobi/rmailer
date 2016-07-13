@@ -1,0 +1,13 @@
+<form id="mailform">
+  <p>To:</p><select class="selectpicker" ng-model="email.to">
+    <option>1</option>
+    <option>2</option>
+  </select>
+  <p>From:</p><select class="selectpicker" ng-model="email.from">
+    <option>1</option>
+    <option>2</option>
+  </select>
+  <input type="text" placeholder="subject" ng-model="email.subject">
+  <input type="text" placeholder="message" ng-model="email.message">
+  <button class="btn btn-default" ng-click='MailCtrl.sendMail(email)'>Send Mail</button>
+</form>

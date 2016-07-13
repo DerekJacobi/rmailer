@@ -15,9 +15,11 @@ module.exports = function(app){
   });
 
   app.post('/sendemail', function(req, res, next){
-    console.log(req.params);
-    console.log('sending email');
-    Mail.create({from: 'Master Javscript', to: 1, subject: 'Getting better everyday'}, function(err, mail){
+    var emailTo = req.body.to,
+        emailFrom = req.body.from,
+        emailSubject = req.body.subject,
+        emailMessage = req.body.message;
+    Mail.create({from: emailFrom, to: emailTo, subject: emailSubject, message: emailMessage}, function(err, mail){
       if(err) console.log(err);
       else console.log(mail);
     });

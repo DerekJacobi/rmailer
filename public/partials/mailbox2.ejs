@@ -1,0 +1,18 @@
+<div>
+
+  <div class="header-get-mail">
+    <h3>Rebel Mail HTTP Mailbox:</h3>
+    <p>
+       User 2
+    </p>
+    <button class="btn btn-default" ng-click='MailCtrl.getMail(2)'>Get Mail</button>
+  </div>
+
+  <div>
+    <div id="mailbox">
+      <ul>
+        <li ng-repeat="mail in userMail | filter: { to: '2' }">From: {{mail.from}} Subject: {{mail.subject}} Message: {{mail.message}} Sent: {{mail.sent_at}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

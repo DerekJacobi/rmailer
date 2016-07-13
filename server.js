@@ -1,12 +1,17 @@
 var express     = require('express'),
     ejs         = require('ejs'),
     path        = require('path'),
-    http        = require('http');
-    mongoose    = require('mongoose');
+    http        = require('http'),
+    bodyParser  = require('body-parser'),
+    mongoose    = require('mongoose'),
+    app         = express();
 
-var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 var port = 3000;
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

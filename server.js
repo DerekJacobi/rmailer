@@ -24,8 +24,8 @@ app.use(express.static('public'));
 require('./app/app.js')(app);
 
 var uristring =
-   process.env.MONGOLAB_URI ||
-   process.env.MONGOHQ_URL ||
+   process.env.MONGODB_URI ||
+   process.env.PROD_MONGODB ||
    'mongodb://localhost/';
 
 mongoose.connect(uristring, function(err) {
